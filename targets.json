@@ -1,0 +1,10 @@
+{
+    ".vimrc": {
+        "home": "~/.vimrc",
+        "cell": ".vimrc"
+    },
+    ".vim/": {
+        "home": "~/.vim/",
+        "cell": ".vim/"
+    }
+}
