@@ -1,1 +1,0 @@
-/Users/jordan/.vimrc
