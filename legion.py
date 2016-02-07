@@ -35,6 +35,10 @@ class Legion():
 
         print('added {} to {}'.format(new_target_name, self.target_source))
 
+        # check to see if the file actually exists
+        if not path.exists(new_item):
+            print('    warning: no such file.')
+
         new_target = {
             'home': new_target_relative_home,
             'cell': new_target_name
@@ -96,6 +100,8 @@ class Legion():
                 except FileExistsError:
                     shutil.rmtree(home)
                     shutil.copytree(cell, home)
+            except FileNotFoundError:
+                print('        missing!')
 
         print('...done.')
 
