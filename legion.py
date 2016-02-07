@@ -71,7 +71,11 @@ class Legion():
             try:
                 shutil.copy(home, cell)
             except IsADirectoryError:
-                shutil.copytree(home, cell)
+                try:
+                    shutil.copytree(home, cell)
+                except FileExistsError:
+                    shutil.rmtree(cell)
+                    shutil.copytree(home, cell)
 
         print('...done.')
 
@@ -87,7 +91,11 @@ class Legion():
             try:
                 shutil.copy(cell, home)
             except IsADirectoryError:
-                shutil.copytree(cell, home)
+                try:
+                    shutil.copytree(cell, home)
+                except FileExistsError:
+                    shutil.rmtree(home)
+                    shutil.copytree(cell, home)
 
         print('...done.')
 
