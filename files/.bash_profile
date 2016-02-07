@@ -9,5 +9,8 @@ export PATH
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# define prompt
+source $HOME/.bash_prompt
+
 # define aliases
-source $HOME/.aliases
+source $HOME/.bash_aliases

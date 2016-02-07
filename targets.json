@@ -1,22 +1,26 @@
 {
- ".aliases": {
-  "home": "~/.aliases",
-  "cell": ".aliases"
+ ".bashrc": {
+  "cell": ".bashrc",
+  "home": "~/.bashrc"
  },
  ".vim": {
-  "home": "~/.vim",
-  "cell": ".vim"
+  "cell": ".vim",
+  "home": "~/.vim"
  },
- ".bashrc": {
-  "home": "~/.bashrc",
-  "cell": ".bashrc"
- },
- ".vimrc": {
-  "home": "~/.vimrc",
-  "cell": ".vimrc"
+ ".bash_aliases": {
+  "cell": ".bash_aliases",
+  "home": "~/.bash_aliases"
  },
  ".bash_profile": {
-  "home": "~/.bash_profile",
-  "cell": ".bash_profile"
+  "cell": ".bash_profile",
+  "home": "~/.bash_profile"
+ },
+ ".bash_prompt": {
+  "cell": ".bash_prompt",
+  "home": "~/.bash_prompt"
+ },
+ ".vimrc": {
+  "cell": ".vimrc",
+  "home": "~/.vimrc"
  }
 }
