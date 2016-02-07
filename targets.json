@@ -1,10 +1,22 @@
 {
-    ".vimrc": {
-        "home": "~/.vimrc",
-        "cell": ".vimrc"
-    },
-    ".vim/": {
-        "home": "~/.vim/",
-        "cell": ".vim/"
-    }
+ ".aliases": {
+  "cell": ".aliases",
+  "home": "~/.aliases"
+ },
+ ".vimrc": {
+  "cell": ".vimrc",
+  "home": "~/.vimrc"
+ },
+ ".bashrc": {
+  "cell": ".bashrc",
+  "home": "~/.bashrc"
+ },
+ ".vim": {
+  "cell": ".vim",
+  "home": "~/.vim"
+ },
+ ".bash_profile": {
+  "cell": ".bash_profile",
+  "home": "~/.bash_profile"
+ }
 }
