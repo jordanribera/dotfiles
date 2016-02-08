@@ -17,6 +17,9 @@ set clipboard=unnamed
 set mouse=a " on OSX press ALT and click
 set bs=2 " make backspace behave like normal again
 
+" Tab navigation
+
+
 " ================
 " Visual Stuff
 " ================

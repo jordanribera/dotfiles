@@ -64,9 +64,9 @@ hi DiffChange					ctermbg=237										guibg=#382a37
 "hi SpellCap
 "hi SpellLocal
 "hi SpellRare
-"hi TabLine
-"hi TabLineFill
-"hi TabLineSel
+hi TabLine		ctermfg=Black	ctermbg=246	cterm=NONE
+hi TabLineFill	ctermfg=Black	ctermbg=246	cterm=NONE
+hi TabLineSel	ctermfg=White	ctermbg=111	cterm=NONE
 "hi Tooltip
 "hi User1
 "hi User9
