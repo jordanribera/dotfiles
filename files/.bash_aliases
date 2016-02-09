@@ -14,6 +14,9 @@ alias lsd="ls -d .*"    # list only hidden
 alias cls="clear"
 alias c="clear"
 
+# exit
+alias x="exit"
+
 # reload terminal
 alias reload="exec $SHELL -l"   # reload shell, with updated bash profile, etc.
 
