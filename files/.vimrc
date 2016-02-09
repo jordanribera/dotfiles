@@ -2,8 +2,8 @@
 " .vimrc scratch file
 
 " Automatic reloading of .vimrc
-autocmd! bufwritepost .vimrc source %
-
+autocmd! bufwritepost .vimrc source % " reload if writing to .vimrc
+command! LoadConf source % " probably silly
 
 " ================
 " Hotkeys
@@ -18,7 +18,8 @@ set mouse=a " on OSX press ALT and click
 set bs=2 " make backspace behave like normal again
 
 " Tab navigation
-
+map <c-h> <esc>:tabprevious<CR>
+map <c-l> <esc>:tabnext<CR>
 
 " ================
 " Visual Stuff
@@ -32,6 +33,7 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 " Color scheme
 set t_Co=256
 color wombat256mod
+syntax enable
 
 " Enable syntax highlighting
 " file reload needed to apply
@@ -78,7 +80,6 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-
 " ================
 " Plugins
 " ================
@@ -95,6 +96,29 @@ call pathogen#infect()
 set laststatus=2
 "" let g:Powerline_symbols= 'fancy'
 
+" Settings for vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+
+
 " Settings for ctrlp
 " cd ~/.vim/bundle
 " git clone https://github.com/kien/ctrlp.vim.git
@@ -108,6 +132,7 @@ set laststatus=2
 " git clone https://github.com/nvie/vim-flake8.git
 let g:flake8_show_in_gutter = 1
 let g:flake8_show_in_file = 1
+"" let g:flake8_show_quickfix = 0
 autocmd BufWritePost *.py call Flake8() " automatically flake8 on save
 
 " Settings for vim-markdown
