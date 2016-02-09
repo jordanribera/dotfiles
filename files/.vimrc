@@ -24,6 +24,10 @@ map <c-l> <esc>:tabnext<CR>
 " Toggle NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
+" Activate ctrl-p
+let g:ctrlp_map = '<c-p>'
+
+
 " ================
 " Visual Stuff
 " ================
@@ -34,9 +38,11 @@ autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 " Color scheme
-set t_Co=256
-color wombat256mod
+" set t_Co=256
+" color wombat256mod
 syntax enable
+set background=dark
+colorscheme solarized
 
 " Enable syntax highlighting
 " file reload needed to apply
@@ -90,7 +96,6 @@ set noswapfile
 " Set up Pathogen to manage plugins
 " mkdir -p ~/.vim/autoload ~/.vim/bundle
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-" Now you can install any plugin into a .vim/bundle/plugin-name/ folder
 call pathogen#infect()
 
 " Settings for vim-powerline
@@ -103,7 +108,6 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -121,13 +125,12 @@ let g:airline_symbols.linenr = ''
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 
-
 " Settings for ctrlp
 " cd ~/.vim/bundle
 " git clone https://github.com/kien/ctrlp.vim.git
-"" let g:ctrlp_max_height = 30
-"" set wildignore+=*.pyc
-"" set wildignore+=*_build/*
+let g:ctrlp_max_height = 30
+set wildignore+=*.pyc
+set wildignore+=*_build/*
 "" set wildignore+=*/coverage/*
 
 " Settings for vim-flake8
