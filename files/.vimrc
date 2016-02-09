@@ -21,6 +21,9 @@ set bs=2 " make backspace behave like normal again
 map <c-h> <esc>:tabprevious<CR>
 map <c-l> <esc>:tabnext<CR>
 
+" Toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
 " ================
 " Visual Stuff
 " ================
@@ -144,3 +147,6 @@ let g:vim_markdown_folding_disabled = 1
 " cd ~/.vim/bundle
 " git clone --recursive https://github.com/davidhalter/jedi-vim.git
 let g:jedi#popup_on_dot = 1
+
+" Settings for NERDTree
+
