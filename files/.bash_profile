@@ -6,8 +6,8 @@ PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 export PATH
 
 # enable osx terminal colors
-# export CLICOLOR=1
-# export LSCOLORS=GxFxCxDxBxegedabagaced
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # define prompt
 source $HOME/.bash_prompt
