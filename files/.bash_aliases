@@ -6,9 +6,12 @@ alias dotfilesroot="cd ~/code/personal/dotfiles"
 alias dfr="dotfilesroot"
 
 # fancy lists
-alias ls="ls -lh"       # always show in list form
-alias lsa="ls -lah"     # list with hidden
-alias lsd="ls -d .*"    # list only hidden
+alias ls="ls -lhF"       # always show in list form
+alias lsa="ls -lahF"     # list with hidden
+alias lsd="ls -dF .*"    # list only hidden
+
+# human readable sizes
+alias du="du -h"
 
 # clear
 alias cls="clear"
