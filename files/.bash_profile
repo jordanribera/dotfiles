@@ -1,4 +1,7 @@
-source $HOME/code/rover/web/profile
+PLATFORM=`uname -s`
+if [ $PLATFORM == 'Darwin' ]; then
+    source $HOME/code/rover/web/profile
+fi
 
 # Setting PATH for Python 3.5
 # The orginal version is saved in .bash_profile.pysave

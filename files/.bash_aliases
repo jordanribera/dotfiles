@@ -1,6 +1,8 @@
 # quick navigation
 alias roverroot="cd ~/code/rover/web/src/aplaceforrover"
 alias rr="roverroot"
+alias roverweb="cd ~/code/rover/web"
+alias rw="roverweb"
 
 alias dotfilesroot="cd ~/code/personal/dotfiles"
 alias dfr="dotfilesroot"

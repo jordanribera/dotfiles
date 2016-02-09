@@ -56,7 +56,7 @@ set tw=79 " width of document (used by gd)
 set nowrap " don't automatically wrap on load
 set fo-=t " don't automatically wrap text while typing
 set colorcolumn=80
-highlight ColorColumn ctermbg=233
+highlight ColorColumn ctermbg=235
 
 " Easier formatting of paragraphs
 "" vmap Q gq
