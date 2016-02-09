@@ -1,3 +1,10 @@
+# quick navigation
+alias roverroot="cd ~/code/rover/web/src/aplaceforrover"
+alias rr="roverroot"
+
+alias dotfilesroot="cd ~/code/personal/dotfiles"
+alias dfr="dotfilesroot"
+
 # fancy lists
 alias ls="ls -lh"       # always show in list form
 alias lsa="ls -lah"     # list with hidden
