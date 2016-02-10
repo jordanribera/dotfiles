@@ -1,0 +1,7 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Jordan Ribera
+	email = jribera@rover.com
+[core]
+	editor = /usr/local/bin/vim
