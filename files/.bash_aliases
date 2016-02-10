@@ -10,7 +10,7 @@ alias dfr="dotfilesroot"
 # fancy lists
 alias ls="ls -lhF"       # always show in list form
 alias lsa="ls -lahF"     # list with hidden
-alias lsd="ls -dF .*"    # list only hidden
+alias lsh="ls -dF .*"    # list only hidden
 
 # human readable sizes
 alias du="du -h"
