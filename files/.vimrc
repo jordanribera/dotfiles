@@ -27,6 +27,11 @@ map <C-n> :NERDTreeToggle<CR>
 " Activate ctrl-p
 let g:ctrlp_map = '<c-p>'
 
+" ================
+" EZ Commands
+" ================
+:command! TW %s/\s\+$//g " trim trailing whitespace in file"
+
 
 " ================
 " Visual Stuff
@@ -34,8 +39,8 @@ let g:ctrlp_map = '<c-p>'
 
 " Show trailing whitespace
 " MUST be inserted before the colorscheme command
-autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
-au InsertLeave * match ExtraWhiteSpace /\s\+$/
+"" autocmd ColorScheme * highlight ExtraWhiteSpace ctermbg=red guibg=red
+"" au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 " Color scheme
 " set t_Co=256
@@ -88,6 +93,8 @@ set expandtab
 set nobackup
 set nowritebackup
 set noswapfile
+
+set timeoutlen=50 " reduce delay when using <Esc> to return to normal mode"
 
 " ================
 " Plugins

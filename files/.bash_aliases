@@ -11,6 +11,11 @@ alias dfr="dotfilesroot"
 alias ls="ls -lhF"       # always show in list form
 alias lsa="ls -lahF"     # list with hidden
 alias lsh="ls -dF .*"    # list only hidden
+alias lf="ls -1F"
+alias lfa="ls -1aF"
+
+# fancy path
+alias path="echo $PATH | tr -s ':' '\n'"
 
 # human readable sizes
 alias du="du -h"
