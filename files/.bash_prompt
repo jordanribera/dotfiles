@@ -1,8 +1,3 @@
-
-
-
-
-
 if tput setaf 1 &> /dev/null; then
 	tput sgr0; # reset colors
 	bold=$(tput bold);
@@ -118,7 +113,7 @@ PS1+="\[$accentStyle\]:" # :
 PS1+="\[$dirStyle\]\W" # dir
 PS1+="\[$accentStyle\]]" # ]
 
-PS1+="\$(prompt_git)"; # Git repository details
+PS1+="\[\$(prompt_git)\]"; # Git repository details
 
 PS1+="\[$userStyle\]\$" # $
 PS1+="\[$reset\] " # reset and space
