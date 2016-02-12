@@ -1,0 +1,9 @@
+
+
+# bottom slice
+split-window -v -p 25 -t 0
+#split in half
+# split-window -h -p 50 -t 1
+
+
+# split-window -h -p 50 -t 0

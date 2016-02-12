@@ -1,34 +1,38 @@
 {
- ".gitconfig": {
-  "cell": ".gitconfig",
-  "home": "~/.gitconfig"
+ ".tmux": {
+  "home": "~/.tmux",
+  "cell": ".tmux"
  },
  ".bash_aliases": {
-  "cell": ".bash_aliases",
-  "home": "~/.bash_aliases"
- },
- ".vimrc": {
-  "cell": ".vimrc",
-  "home": "~/.vimrc"
- },
- ".bash_profile": {
-  "cell": ".bash_profile",
-  "home": "~/.bash_profile"
+  "home": "~/.bash_aliases",
+  "cell": ".bash_aliases"
  },
  ".bash_prompt": {
-  "cell": ".bash_prompt",
-  "home": "~/.bash_prompt"
+  "home": "~/.bash_prompt",
+  "cell": ".bash_prompt"
  },
- ".vim": {
-  "cell": ".vim",
-  "home": "~/.vim"
+ ".vimrc": {
+  "home": "~/.vimrc",
+  "cell": ".vimrc"
+ },
+ ".gitconfig": {
+  "home": "~/.gitconfig",
+  "cell": ".gitconfig"
+ },
+ ".bash_profile": {
+  "home": "~/.bash_profile",
+  "cell": ".bash_profile"
  },
  ".bashrc": {
-  "cell": ".bashrc",
-  "home": "~/.bashrc"
+  "home": "~/.bashrc",
+  "cell": ".bashrc"
+ },
+ ".vim": {
+  "home": "~/.vim",
+  "cell": ".vim"
  },
  ".tmux.conf": {
-  "cell": ".tmux.conf",
-  "home": "~/.tmux.conf"
+  "home": "~/.tmux.conf",
+  "cell": ".tmux.conf"
  }
 }
