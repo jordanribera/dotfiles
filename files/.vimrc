@@ -30,7 +30,7 @@ let g:ctrlp_map = '<c-p>'
 " ================
 " EZ Commands
 " ================
-:command! TW %s/\s\+$//g " trim trailing whitespace in file"
+:command! TW %s/\s\+$//g " trim trailing whitespace in file
 
 
 " ================
@@ -56,7 +56,11 @@ filetype plugin indent on
 syntax on
 
 " Showing line numbers and length
-set number " show line numbers
+set relativenumber
+set number
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
+
 set tw=79 " width of document (used by gd)
 set nowrap " don't automatically wrap on load
 set fo-=t " don't automatically wrap text while typing
