@@ -13,6 +13,9 @@ command! LoadConf source % " probably silly
 set pastetoggle=<F2>
 set clipboard=unnamed
 
+" Quick centering in normal mode
+nmap <space> zz
+
 " Mouse and backspace
 set mouse=a " on OSX press ALT and click
 set bs=2 " make backspace behave like normal again
