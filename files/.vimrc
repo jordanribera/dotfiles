@@ -15,6 +15,8 @@ set clipboard=unnamed
 
 " Quick centering in normal mode
 nmap <space> zz
+nmap n nzz
+nmap N Nzz
 
 " Mouse and backspace
 set mouse=a " on OSX press ALT and click
@@ -46,8 +48,6 @@ let g:ctrlp_map = '<c-p>'
 "" au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 " Color scheme
-" set t_Co=256
-" color wombat256mod
 syntax enable
 set background=dark
 colorscheme solarized
