@@ -1,2 +1,2 @@
 # bottom slice
-split-window -h -p 60 -t 0
+split-window -h -p 50 -t 0
