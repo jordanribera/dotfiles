@@ -153,6 +153,11 @@ set wildignore+=*_build/*
 let g:flake8_show_in_gutter = 1
 let g:flake8_show_in_file = 1
 "" let g:flake8_show_quickfix = 0
+highlight link Flake8_Error      Error
+highlight link Flake8_Warning    WarningMsg
+highlight link Flake8_Complexity WarningMsg
+highlight link Flake8_Naming     WarningMsg
+highlight link Flake8_PyFlake    WarningMsg
 autocmd BufWritePost *.py call Flake8() " automatically flake8 on save
 
 " Settings for vim-markdown
