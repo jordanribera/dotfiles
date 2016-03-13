@@ -169,6 +169,7 @@ let g:vim_markdown_folding_disabled = 1
 " cd ~/.vim/bundle
 " git clone --recursive https://github.com/davidhalter/jedi-vim.git
 let g:jedi#popup_on_dot = 1
+let g:jedi#completions_enabled = 0
 
 " Settings for NERDTree
 
