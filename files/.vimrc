@@ -153,6 +153,11 @@ set wildignore+=*_build/*
 let g:flake8_show_in_gutter = 1
 let g:flake8_show_in_file = 1
 "" let g:flake8_show_quickfix = 0
+highlight link Flake8_Error      Error
+highlight link Flake8_Warning    WarningMsg
+highlight link Flake8_Complexity WarningMsg
+highlight link Flake8_Naming     WarningMsg
+highlight link Flake8_PyFlake    WarningMsg
 autocmd BufWritePost *.py call Flake8() " automatically flake8 on save
 
 " Settings for vim-markdown
@@ -164,6 +169,7 @@ let g:vim_markdown_folding_disabled = 1
 " cd ~/.vim/bundle
 " git clone --recursive https://github.com/davidhalter/jedi-vim.git
 let g:jedi#popup_on_dot = 1
+let g:jedi#completions_enabled = 0
 
 " Settings for NERDTree
 

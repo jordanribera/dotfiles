@@ -5,3 +5,5 @@
 	email = jribera@rover.com
 [core]
 	editor = /usr/local/bin/vim
+[push]
+	default = simple
