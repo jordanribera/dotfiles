@@ -39,3 +39,5 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # badges?!
 alias badge="tput bel"
+
+alias git=hub
