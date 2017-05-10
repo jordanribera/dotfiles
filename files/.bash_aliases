@@ -5,6 +5,8 @@ alias roverweb="cd ~/code/rover/web"
 alias rw="roverweb"
 alias cd..="cd .." # because i fail
 
+alias personalroot="cd ~/code/personal"
+alias pr="personalroot"
 alias dotfilesroot="cd ~/code/personal/dotfiles"
 alias dfr="dotfilesroot"
 
@@ -41,3 +43,6 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias badge="tput bel"
 
 alias git=hub
+
+#docker stuff
+alias env="eval $(docker-machine env default)"
