@@ -1,3 +1,7 @@
+[submodule "fonts"]
+    path = extras/fonts
+    url = ssh://git@github.com:powerline/fonts.git
+
 [submodule "ack.vim"]
     path = files/.vim/bundle/ack.vim
     url = ssh://git@github.com:mileszs/ack.vim.git
