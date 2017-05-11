@@ -17,4 +17,6 @@ The `capture` command will fetch each dotfile in `targets.json` into the
 `files/` directory of this repository.
 
 The `invade` command will deploy each dotfile in `targets.json` to the original
-original path that the file was fetched from.
+original path that the file was fetched from. Before deploying files with
+`invade`, be sure to pull down all submodules using `git submodule update
+--init --recursive`.
