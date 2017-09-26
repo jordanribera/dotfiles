@@ -46,3 +46,4 @@ alias git=hub
 
 #docker stuff
 alias env="eval $(docker-machine env default)"
+alias dup="docker-machine start default && eval $(docker-machine env default) && dc up -d && dc stop web && runserver"
