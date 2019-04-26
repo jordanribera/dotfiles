@@ -4,6 +4,6 @@
 	name = Jordan Ribera
 	email = jordanribera@gmail.com
 [core]
-	editor = /usr/local/bin/vim
+	editor = /usr/bin/vim
 [push]
 	default = simple

@@ -61,8 +61,6 @@ show_help () {
 
 
 OPERATION=$1
-echo $OPERATION
-
 case $OPERATION in
     backup) create_backup;;
     deploy) do_deploy;;
