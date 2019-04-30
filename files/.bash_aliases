@@ -57,3 +57,7 @@ alias gcrfix="gcloud auth print-access-token | docker login -u oauth2accesstoken
 
 # looking-glass
 alias scry="~/.scripts/looking_glass.sh"
+
+# updates
+alias sup="sudo apt update && apt list --upgradable"
+alias sug="sudo apt upgrade"
