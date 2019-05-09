@@ -61,3 +61,6 @@ alias scry="~/.scripts/looking_glass.sh"
 # updates
 alias sup="sudo apt update && apt list --upgradable"
 alias sug="sudo apt upgrade"
+
+# ruby
+alias ugh='eval "$(rbenv init -)"'
