@@ -25,7 +25,6 @@ if [ $PLATFORM == 'Linux' ]; then
     fi
 
     export AFK_COMMAND="gnome-screensaver-command -l"
-    export PATH="$HOME/.rbenv/bin:$PATH"
 
 elif [ $PLATFORM == 'Darwin' ]; then
 
@@ -67,6 +66,7 @@ shopt -s checkwinsize
 # default editor
 VISUAL=vim
 EDITOR=vim
+set -o vi
 
 # define prompt
 if [ -f ~/.bash_prompt ]; then

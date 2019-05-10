@@ -63,4 +63,4 @@ alias sup="sudo apt update && apt list --upgradable"
 alias sug="sudo apt upgrade"
 
 # ruby
-alias ugh='eval "$(rbenv init -)"'
+alias ugh='export PATH="$HOME/.rbenv/bin:$PATH" && eval "$(rbenv init -)"'
