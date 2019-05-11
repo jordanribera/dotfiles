@@ -102,20 +102,24 @@ prompt_git() {
     fi;
 }
 
+NOVEL_UNICODE="⎈"
+light_shade='░'
+hex_closed='⏣'
+hex_opened='⌬'
+black_hexagon='⬢'
+white_hexagon='⬡'
+filled_circle='◍'
+dotted_circle='◌'
 
 
+DATE_SEGMENT="\[$accentStyle\][\[$reset\] \D{%F} \[$accentStyle\]]\[$reset\]"
+TIME_SEGMENT="\[$accentStyle\][ \[$green\]$filled_circle\[$reset\] \D{%T} \[$accentStyle\]]\[$reset\]"
+USER_SEGMENT="\[$hostStyle\]$hex_opened \[$userStyle\]\u\[$accentStyle\]@\[$hostStyle\]\h\[$reset\]"
+DIR_SEGMENT="\[$dirStyle\]\w\[$reset\]"
+GIT_SEGMENT="\[\$(prompt_git)\]"
+UNDERLINE="$TIME_SEGMENT \[$cyan\]$black_hexagon\[$reset\]"
 
-PS1="\[$accentStyle\][" # [
-PS1+="\[$userStyle\]\u" # user
-PS1+="\[$accentStyle\]@" # @
-PS1+="\[$hostStyle\]\h" # host
-PS1+="\[$accentStyle\]:" # :
-PS1+="\[$dirStyle\]\W" # dir
-PS1+="\[$accentStyle\]]" # ]
-
-PS1+="\[\$(prompt_git)\]"; # Git repository details
-
-PS1+="\[$userStyle\]\$" # $
-PS1+="\[$reset\] " # reset and space
+PS1="\n$DATE_SEGMENT $USER_SEGMENT : $DIR_SEGMENT $GIT_SEGMENT\n$UNDERLINE  "
 
 export PS1
+export PS2="\[$black\][            ] \[$cyan\]$white_hexagon\[$reset\]  "
