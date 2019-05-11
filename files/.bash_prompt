@@ -39,13 +39,26 @@ fi;
 if [[ "${SSH_TTY}" ]]; then
     hostStyle="\[${bold}${red}\]";
 else
-    hostStyle="\[${green}\]";
+    hostStyle="\[${cyan}\]";
 fi;
+
 
 accentStyle="\[${blue}\]"
 dirStyle="\[${violet}\]"
 
-
+prompt_gear() {
+    local gearStyle='';
+    local gearStyleAndSymbol='';
+    # Highlight the gear when you have elevated privileges
+    sudo -nv &> /dev/null
+    if [ $? -eq 0 ]; then
+        gearStyle="\[$red\]"
+    else
+        gearStyle="\[$white\]"
+    fi
+    gearStyleAndSymbol="\[$gearStyle\]$gear\[$reset\]"
+    echo -e "${gearStyleAndSymbol}"
+}
 
 prompt_git() {
     local s='';
@@ -91,10 +104,10 @@ prompt_git() {
 
         [ -n "${s}" ]; # && s=" ${s}";
 
-        outputBadge="${purple}<";
-        outputBadge+="${yellow}${branchName}";
-        outputBadge+="${orange}${s}";
-        outputBadge+="${purple}>";
+        outputBadge="\[${purple}\]<";
+        outputBadge+="\[${yellow}\]${branchName}";
+        outputBadge+="\[${orange}\]${s}";
+        outputBadge+="\[${purple}\]>";
 
         echo -e "${outputBadge}";
     else
@@ -114,13 +127,14 @@ gear='⚙'
 
 
 DATE_SEGMENT="\[$accentStyle\][\[$reset\] \D{%F} \[$accentStyle\]]\[$reset\]"
-TIME_SEGMENT="\[$accentStyle\][ \[$green\]$filled_circle\[$reset\] \D{%T} \[$accentStyle\]]\[$reset\]"
-USER_SEGMENT="\[$hostStyle\]$black_hexagon \[$userStyle\]\u\[$accentStyle\]@\[$hostStyle\]\h\[$reset\]"
+TIME_SEGMENT="\[$accentStyle\][ $(prompt_gear) \D{%T} \[$accentStyle\]]\[$reset\]"
+USER_SEGMENT="\[$hostStyle\]$black_hexagon  \[$userStyle\]\u\[$accentStyle\]@\[$hostStyle\]\h\[$reset\]"
 DIR_SEGMENT="\[$dirStyle\]\w\[$reset\]"
-GIT_SEGMENT="\[\$(prompt_git)\]"
+GIT_SEGMENT="$(prompt_git)"
 SYMBOL_TEST_LINE="$hex_closed $hex_opened $gear"
-UNDERLINE="$TIME_SEGMENT \[$cyan\]$black_hexagon\[$reset\]"
+UNDERLINE="$TIME_SEGMENT \[$cyan\]$white_hexagon\[$reset\]"
 
+# TODO: conditionally remove the leading newline, don't show for first prompt
 PS1="\n$DATE_SEGMENT $USER_SEGMENT : $DIR_SEGMENT $GIT_SEGMENT\n$UNDERLINE  "
 
 export PS1
