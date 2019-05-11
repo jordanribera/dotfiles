@@ -110,13 +110,15 @@ black_hexagon='⬢'
 white_hexagon='⬡'
 filled_circle='◍'
 dotted_circle='◌'
+gear='⚙'
 
 
 DATE_SEGMENT="\[$accentStyle\][\[$reset\] \D{%F} \[$accentStyle\]]\[$reset\]"
 TIME_SEGMENT="\[$accentStyle\][ \[$green\]$filled_circle\[$reset\] \D{%T} \[$accentStyle\]]\[$reset\]"
-USER_SEGMENT="\[$hostStyle\]$hex_opened \[$userStyle\]\u\[$accentStyle\]@\[$hostStyle\]\h\[$reset\]"
+USER_SEGMENT="\[$hostStyle\]$black_hexagon \[$userStyle\]\u\[$accentStyle\]@\[$hostStyle\]\h\[$reset\]"
 DIR_SEGMENT="\[$dirStyle\]\w\[$reset\]"
 GIT_SEGMENT="\[\$(prompt_git)\]"
+SYMBOL_TEST_LINE="$hex_closed $hex_opened $gear"
 UNDERLINE="$TIME_SEGMENT \[$cyan\]$black_hexagon\[$reset\]"
 
 PS1="\n$DATE_SEGMENT $USER_SEGMENT : $DIR_SEGMENT $GIT_SEGMENT\n$UNDERLINE  "
