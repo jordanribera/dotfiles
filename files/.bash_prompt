@@ -57,7 +57,7 @@ prompt_gear() {
         gearStyle="\[$white\]"
     fi
     gearStyleAndSymbol="\[$gearStyle\]$gear\[$reset\]"
-    echo -e "${gearStyleAndSymbol}"
+    echo -E "${gearStyleAndSymbol}"
 }
 
 prompt_git() {
@@ -104,12 +104,12 @@ prompt_git() {
 
         [ -n "${s}" ]; # && s=" ${s}";
 
-        outputBadge="\[${purple}\]<";
-        outputBadge+="\[${yellow}\]${branchName}";
-        outputBadge+="\[${orange}\]${s}";
-        outputBadge+="\[${purple}\]>";
+        outputBadge="\001${purple}\002<";
+        outputBadge+="\001${yellow}\002${branchName}";
+        outputBadge+="\001${orange}\002${s}";
+        outputBadge+="\001${purple}\002>";
 
-        echo -e "${outputBadge}";
+        echo -E "${outputBadge}";
     else
         return;
     fi;
@@ -126,16 +126,18 @@ dotted_circle='◌'
 gear='⚙'
 
 
-DATE_SEGMENT="\[$accentStyle\][\[$reset\] \D{%F} \[$accentStyle\]]\[$reset\]"
-TIME_SEGMENT="\[$accentStyle\][ $(prompt_gear) \D{%T} \[$accentStyle\]]\[$reset\]"
-USER_SEGMENT="\[$hostStyle\]$black_hexagon  \[$userStyle\]\u\[$accentStyle\]@\[$hostStyle\]\h\[$reset\]"
-DIR_SEGMENT="\[$dirStyle\]\w\[$reset\]"
-GIT_SEGMENT="$(prompt_git)"
-SYMBOL_TEST_LINE="$hex_closed $hex_opened $gear"
-UNDERLINE="$TIME_SEGMENT \[$hostStyle\]$white_hexagon\[$reset\]"
+prompt_command() {
+    DATE_SEGMENT="\[$accentStyle\][\[$reset\] \D{%F} \[$accentStyle\]]\[$reset\]"
+    TIME_SEGMENT="\[$accentStyle\][ $(prompt_gear) \D{%T} \[$accentStyle\]]\[$reset\]"
+    USER_SEGMENT="\[$hostStyle\]$black_hexagon  \[$userStyle\]\u\[$accentStyle\]@\[$hostStyle\]\h\[$reset\]"
+    DIR_SEGMENT="\[$dirStyle\]\w\[$reset\]"
+    GIT_SEGMENT="$(prompt_git)"
+    SYMBOL_TEST_LINE="$hex_closed $hex_opened $gear"
+    UNDERLINE="$TIME_SEGMENT \[$hostStyle\]$white_hexagon\[$reset\]"
 
-# TODO: conditionally remove the leading newline, don't show for first prompt
-PS1="\n$DATE_SEGMENT $USER_SEGMENT : $DIR_SEGMENT $GIT_SEGMENT\n$UNDERLINE  "
+    # TODO: conditionally remove the leading newline, don't show for first prompt
+    PS1="\n$DATE_SEGMENT $USER_SEGMENT : $DIR_SEGMENT $GIT_SEGMENT\n$UNDERLINE  "
+    PS2="\[$black\][            ] \[$hostStyle\]$white_hexagon\[$reset\]  "
+}
 
-export PS1
-export PS2="\[$black\][            ] \[$hostStyle\]$white_hexagon\[$reset\]  "
+export PROMPT_COMMAND=prompt_command
