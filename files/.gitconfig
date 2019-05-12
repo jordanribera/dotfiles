@@ -2,8 +2,8 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Jordan Ribera
-	email = jribera@rover.com
+	email = jordanribera@gmail.com
 [core]
-	editor = /usr/local/bin/vim
+	editor = /usr/bin/vim
 [push]
 	default = simple

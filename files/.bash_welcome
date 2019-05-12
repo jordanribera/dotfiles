@@ -1,0 +1,63 @@
+colorescape() {
+    echo -E "\001${1}\002";
+}
+
+tput sgr0; # reset colors
+bold=$(colorescape $(tput bold));
+reset=$(colorescape $(tput sgr0));
+# Solarized colors, taken from http://git.io/solarized-colors.
+black=$(colorescape $(tput setaf 0));
+blue=$(colorescape $(tput setaf 33));
+cyan=$(colorescape $(tput setaf 37));
+green=$(colorescape $(tput setaf 64));
+orange=$(colorescape $(tput setaf 166));
+purple=$(colorescape $(tput setaf 125));
+red=$(colorescape $(tput setaf 124));
+violet=$(colorescape $(tput setaf 61));
+white=$(colorescape $(tput setaf 15));
+yellow=$(colorescape $(tput setaf 136));
+
+# cpu info
+CPU_MODEL=`cat /proc/cpuinfo | grep 'model name' | uniq | sed -E 's/^.+\: //'`
+CPU_CORES=`cat /proc/cpuinfo | grep 'cpu cores' | uniq | sed -E 's/^.+\: //'`
+CPU_THREADS=`cat /proc/cpuinfo | grep 'processor' | uniq | wc -l`
+
+# memory info
+MEMORY_BYTES=`lsmem -b | grep 'online memory' | sed -E 's/^.+\: //'`
+MEMORY_MB=$(( $MEMORY_BYTES / 1024 / 1024 ))
+MEMORY_GB=$(( $MEMORY_MB / 1024 ))
+
+# video devices
+VIDEO_DEVICES=($(lspci | grep 'VGA' | sed -E 's/ .+$//'))
+
+display_gpu() {
+    id=$1
+    name=`lspci -s $id | sed -E 's/^.+\: //'`
+    driver=`lspci -vs $id | grep 'driver in use' | sed -E 's/^.+\: //'`
+    echo -e "  ${name} (${id}/${blue}${driver}${reset})"
+}
+
+system_info() {
+    echo -e "${bold}${white}CPU:${reset}     ${CPU_MODEL}"
+    echo -e "${bold}${white}Threads:${reset} ${CPU_CORES}c / ${CPU_THREADS}t"
+
+    echo -e "${bold}${white}Memory:${reset}  ${MEMORY_GB} GB (${MEMORY_MB} MB)"
+
+    echo -e "${bold}${white}GPU:${reset}"
+
+    for gpu_id in "${VIDEO_DEVICES[@]}";
+    do
+        display_gpu "${gpu_id}";
+    done;
+}
+
+session_info() {
+    echo -e "${bold}${blue}New Session${reset}"
+    echo -e "${bold}${white}Started At:${reset} $(iso_datetime)"
+    echo -e "${bold}${white}Internal IP:${reset} $(internal_ip)"
+    echo -e "${bold}${white}External IP:${reset} $(external_ip)"
+}
+
+# TODO: dual mode welcome: system+session info on first command, session only on reload
+# system_info | sed -E 's/^/    /'
+session_info

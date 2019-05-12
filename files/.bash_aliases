@@ -1,17 +1,13 @@
 # quick navigation
-alias roverroot="cd ~/code/rover/web/src/aplaceforrover"
-alias rr="roverroot"
-alias roverweb="cd ~/code/rover/web"
-alias rw="roverweb"
 alias cd..="cd .." # because i fail
 
 alias personalroot="cd ~/code/personal"
 alias pr="personalroot"
-alias dotfilesroot="cd ~/code/personal/dotfiles"
-alias dfr="dotfilesroot"
+alias workroot="cd ~/code/leafly"
+alias wr="workroot"
 
 # fancy lists
-alias ls="ls -lhF"       # always show in list form
+# alias ls="ls -lhF"       # always show in list form
 alias lsa="ls -lahF"     # list with hidden
 alias lsh="ls -dF .*"    # list only hidden
 alias lf="ls -1F"
@@ -33,16 +29,37 @@ alias :q="exit"     # lazy vim shortcut
 alias :wq="exit"    # lazy vim shortcut
 
 # reload terminal
-alias reload="exec $SHELL -l"   # reload shell, with updated bash profile, etc.
 # alias rlc="reload; clear"
 
 # afk
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias afk="$AFK_COMMAND"
 
 # badges?!
-alias badge="tput bel"
+alias bell="tput bel"
+alias badge="bell"
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+# ^ example: sleep 10 && alert "done sleeping"
 
-alias git=hub
+# rcp (rsync copy w/ progress)
+alias rcp="rsync -ah --progress"
 
-#docker stuff
-alias env="eval $(docker-machine env default)"
+# folding@home
+alias sudo="sudo "
+alias fah="/etc/init.d/FAHClient"
+
+# docker workflow
+alias dc="docker-compose"
+alias dcx="docker-compose exec"
+
+# google cloud
+alias gcrfix="gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://gcr.io"
+
+# looking-glass
+alias scry="~/.scripts/looking_glass.sh"
+
+# updates
+alias sup="sudo apt update && apt list --upgradable"
+alias sug="sudo apt upgrade"
+
+# ruby
+alias ugh='export PATH="$HOME/.rbenv/bin:$PATH" && eval "$(rbenv init -)"'

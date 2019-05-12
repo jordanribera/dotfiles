@@ -1,22 +1,31 @@
 # dotfiles
-This is a collection of my dotfiles. Also included is a python script for
-fetching them and deploying them.
+This is a collection of my dotfiles. Also included is a script for fetching
+them and deploying them.
 
-## Using legion.py
-`legion.py` is a simple python script that can collect dotfiles for storage in
+## Using operator.sh
+`operator.sh` is a simple bash script that can collect dotfiles for storage in
 a git repository such as this one, as well as deploy those dotfiles.
 
-The script has 3 commands: `add`, `capture`, and `invade`.
+Usage:
+```
+./operator.sh backup  # backup current dotfiles
+./operator.sh deploy  # install dotfiles from repo
+./operator.sh diff    # obvious
+```
 
-The `add` command expects the shortened path of a dotfile in your home
-directory (example `~/.vimrc`). This file is then added to `targets.json`,
-which keeps a record of the file's original home path as well as where it is
-stored within the repo.
+For each of these commands, the script consults the `targets` file. This
+contains a list of "files of interest" which the operator will work with.
 
-The `capture` command will fetch each dotfile in `targets.json` into the
-`files/` directory of this repository.
+The `backup` command will iterate through the files specified in `targets`,
+copying their current state on the system into a timestamped folder
+(`cp ~/<file> ./backups/<timestamp>/<file>`) Note: these backups are _ignored_
+by git; to preserve a backup, overwrite the contents of `./files/` with the
+contents of the timestamped folder and commit.
 
-The `invade` command will deploy each dotfile in `targets.json` to the original
-original path that the file was fetched from. Before deploying files with
-`invade`, be sure to pull down all submodules using `git submodule update
---init --recursive`.
+The `deploy` command will iterate through the files specified in `targets`,
+copying their contents from this repository into the system
+(`cp ./files/<file> ~/<file>`).
+
+The `diff` command will iterate through the files specified in `targets`,
+displaying their diff between this repository and the system. This gives a
+preview of the changes that would be applied by `./operator.sh deploy`.

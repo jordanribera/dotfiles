@@ -26,9 +26,6 @@ set bs=2 " make backspace behave like normal again
 map <c-h> <esc>:tabprevious<CR>
 map <c-l> <esc>:tabnext<CR>
 
-" Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
-
 " Activate ctrl-p
 let g:ctrlp_map = '<c-p>'
 
@@ -172,4 +169,6 @@ let g:jedi#popup_on_dot = 1
 let g:jedi#completions_enabled = 0
 
 " Settings for NERDTree
+map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
