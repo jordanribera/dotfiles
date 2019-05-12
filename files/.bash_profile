@@ -68,14 +68,20 @@ VISUAL=vim
 EDITOR=vim
 set -o vi
 
+
+# define aliases
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
 # define prompt
 if [ -f ~/.bash_prompt ]; then
     source $HOME/.bash_prompt
 fi
 
-# define aliases
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
+# define welcome
+if [ -f ~/.bash_welcome ]; then
+    source $HOME/.bash_welcome
 fi
 
 # enable programmable completion features (you don't need to enable
