@@ -1,50 +1,40 @@
-if tput setaf 1 &> /dev/null; then
-    tput sgr0; # reset colors
-    bold=$(tput bold);
-    reset=$(tput sgr0);
-    # Solarized colors, taken from http://git.io/solarized-colors.
-    black=$(tput setaf 0);
-    blue=$(tput setaf 33);
-    cyan=$(tput setaf 37);
-    green=$(tput setaf 64);
-    orange=$(tput setaf 166);
-    purple=$(tput setaf 125);
-    red=$(tput setaf 124);
-    violet=$(tput setaf 61);
-    white=$(tput setaf 15);
-    yellow=$(tput setaf 136);
-else
-    bold='';
-    reset="\e[0m";
-    black="\e[1;30m";
-    blue="\e[1;34m";
-    cyan="\e[1;36m";
-    green="\e[1;32m";
-    orange="\e[1;33m";
-    purple="\e[1;35m";
-    red="\e[1;31m";
-    violet="\e[1;35m";
-    white="\e[1;37m";
-    yellow="\e[1;33m";
-fi;
+colorescape() {
+    echo -E "\001${1}\002";
+}
+
+tput sgr0; # reset colors
+bold=$(colorescape $(tput bold));
+reset=$(colorescape $(tput sgr0));
+# Solarized colors, taken from http://git.io/solarized-colors.
+black=$(colorescape $(tput setaf 0));
+blue=$(colorescape $(tput setaf 33));
+cyan=$(colorescape $(tput setaf 37));
+green=$(colorescape $(tput setaf 64));
+orange=$(colorescape $(tput setaf 166));
+purple=$(colorescape $(tput setaf 125));
+red=$(colorescape $(tput setaf 124));
+violet=$(colorescape $(tput setaf 61));
+white=$(colorescape $(tput setaf 15));
+yellow=$(colorescape $(tput setaf 136));
+
 
 # Highlight the user name when logged in as root.
 if [[ "${USER}" == "root" ]]; then
-    userStyle="\[${red}\]";
+    userStyle=$red;
 else
-    userStyle="\[${green}\]";
+    userStyle=$green;
 fi;
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-    hostStyle="\[${red}\]";
+    hostStyle="$red";
 else
-    hostStyle="\[${cyan}\]";
+    hostStyle="$cyan";
 fi;
 
 
-accentStyle="\[${blue}\]"
-dirStyle="\[${violet}\]"
+accentStyle=$blue
+dirStyle="$violet"
 
 prompt_gear() {
     local gearStyle='';
@@ -52,11 +42,11 @@ prompt_gear() {
     # Highlight the gear when you have elevated privileges
     sudo -nv &> /dev/null
     if [ $? -eq 0 ]; then
-        gearStyle="\[$red\]"
+        gearStyle=$red
     else
-        gearStyle="\[$white\]"
+        gearStyle=$white
     fi
-    gearStyleAndSymbol="\[$gearStyle\]$gear\[$reset\]"
+    gearStyleAndSymbol="${gearStyle}${gear}${reset}"
     echo -E "${gearStyleAndSymbol}"
 }
 
@@ -104,10 +94,7 @@ prompt_git() {
 
         [ -n "${s}" ]; # && s=" ${s}";
 
-        outputBadge="\001${purple}\002<";
-        outputBadge+="\001${yellow}\002${branchName}";
-        outputBadge+="\001${orange}\002${s}";
-        outputBadge+="\001${purple}\002>";
+        outputBadge="${purple}<${yellow}${branchName}${orange}${s}${purple}>${reset}";
 
         echo -E "${outputBadge}";
     else
@@ -127,16 +114,17 @@ gear='⚙'
 
 
 prompt_command() {
-    DATE_SEGMENT="\[$accentStyle\][\[$reset\] \D{%F} \[$accentStyle\]]\[$reset\]"
-    TIME_SEGMENT="\[$accentStyle\][ $(prompt_gear) \D{%T} \[$accentStyle\]]\[$reset\]"
-    USER_SEGMENT="\[$hostStyle\]$black_hexagon  \[$userStyle\]\u\[$accentStyle\]@\[$hostStyle\]\h\[$reset\]"
-    DIR_SEGMENT="\[$dirStyle\]\w\[$reset\]"
+    DATE_SEGMENT="${accentStyle}[${reset} $(iso_date) ${accentStyle}]${reset}"
+    TIME_SEGMENT="${accentStyle}[ $(prompt_gear) $(iso_time) ${accentStyle}]${reset}"
+    USER_SEGMENT="${hostStyle}$black_hexagon  ${userStyle}\u${accentStyle}@${hostStyle}\h${reset}"
+    DIR_SEGMENT="${dirStyle}\w${reset}"
     GIT_SEGMENT="$(prompt_git)"
     SYMBOL_TEST_LINE="$hex_closed $hex_opened $gear"
-    UNDERLINE="$TIME_SEGMENT \[$hostStyle\]$white_hexagon\[$reset\]"
 
     # TODO: conditionally remove the leading newline, don't show for first prompt
-    PS1="\n$DATE_SEGMENT $USER_SEGMENT : $DIR_SEGMENT $GIT_SEGMENT\n$UNDERLINE  "
+    PS1="
+$DATE_SEGMENT $USER_SEGMENT : $DIR_SEGMENT $GIT_SEGMENT
+$TIME_SEGMENT ${hostStyle}$white_hexagon${reset}  "
     PS2="\[$black\][            ] \[$hostStyle\]$white_hexagon\[$reset\]  "
 }
 

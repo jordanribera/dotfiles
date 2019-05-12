@@ -52,12 +52,12 @@ system_info() {
 }
 
 session_info() {
-    IP_ADDRESSES=($(hostname -I))
-    PRIMARY_IP="${IP_ADDRESSES[0]}"
-
-    echo -e "${bold}${white}IP Address:${reset}  ${PRIMARY_IP}"
+    echo -e "${bold}${blue}New Session${reset}"
+    echo -e "${bold}${white}Started At:${reset} $(iso_datetime)"
+    echo -e "${bold}${white}Internal IP:${reset} $(internal_ip)"
+    echo -e "${bold}${white}External IP:${reset} $(external_ip)"
 }
 
 # TODO: dual mode welcome: system+session info on first command, session only on reload
-system_info | sed -E 's/^/    /'
+# system_info | sed -E 's/^/    /'
 session_info

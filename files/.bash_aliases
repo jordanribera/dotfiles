@@ -29,7 +29,6 @@ alias :q="exit"     # lazy vim shortcut
 alias :wq="exit"    # lazy vim shortcut
 
 # reload terminal
-alias reload="exec $SHELL -l"   # reload shell, with updated bash profile, etc.
 # alias rlc="reload; clear"
 
 # afk
