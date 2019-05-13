@@ -69,6 +69,11 @@ EDITOR=vim
 set -o vi
 
 
+# define colors
+if [ -f ~/.bash_colors ]; then
+    source ~/.bash_colors
+fi
+
 # define functions
 if [ -f ~/.bash_functions ]; then
     source ~/.bash_functions

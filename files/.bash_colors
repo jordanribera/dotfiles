@@ -1,0 +1,19 @@
+tput sgr0; # reset colors
+
+colorescape() {
+    echo -E "\001${1}\002";
+}
+
+bold=$(colorescape $(tput bold));
+reset=$(colorescape $(tput sgr0));
+# Solarized colors, taken from http://git.io/solarized-colors.
+black=$(colorescape $(tput setaf 0));
+blue=$(colorescape $(tput setaf 33));
+cyan=$(colorescape $(tput setaf 37));
+green=$(colorescape $(tput setaf 64));
+orange=$(colorescape $(tput setaf 166));
+purple=$(colorescape $(tput setaf 125));
+red=$(colorescape $(tput setaf 124));
+violet=$(colorescape $(tput setaf 61));
+white=$(colorescape $(tput setaf 15));
+yellow=$(colorescape $(tput setaf 136));

@@ -39,3 +39,33 @@ build_qmk() ( # subshell
     make ${KEYBOARD_MODEL}:${KEYBOARD_MAP}
     cp ${QMK_ROOT}/${KEYBOARD_MODEL}_${KEYBOARD_MAP}.hex $DESTINATION
 )
+
+display_gpu() {
+    id=$1
+    name=`lspci -s $id | sed -E 's/^.+\: //'`
+    driver=`lspci -vs $id | grep 'driver in use' | sed -E 's/^.+\: //'`
+    echo -e "${name} (${id}/${white}${driver}${reset})"
+}
+
+list_gpus() {
+    # video devices
+    VIDEO_DEVICES=($(lspci | grep 'VGA' | sed -E 's/ .+$//'))
+
+    for gpu_id in "${VIDEO_DEVICES[@]}";
+    do
+        display_gpu "${gpu_id}";
+    done;
+}
+
+list_disks() {
+    disks=(/dev/disk/by-label/*)
+    for d in "${disks[@]}"; do
+        echo "$d"
+    done
+}
+
+ascii_logo() {
+echo -e "
+"
+
+}
