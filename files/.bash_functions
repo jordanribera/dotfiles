@@ -7,8 +7,44 @@ external_ip() {
 }
 
 internal_ip() {
-    IP_ADDRESSES=($(hostname -I))
-    echo "${IP_ADDRESSES[0]}"
+    if [ $PLATFORM == 'Linux' ]; then
+        IP_ADDRESSES=($(hostname -I))
+        echo "${IP_ADDRESSES[0]}"
+    elif [ $PLATFORM == 'Darwin' ]; then
+        ifconfig en0 | sed -n '/.inet /{s///;s/ .*//;p;}'
+    fi
+}
+
+memory_bytes() {
+    if [ $PLATFORM == 'Linux' ]; then
+        lsmem -b | grep 'online memory' | sed -E 's/^.+\: //'
+    elif [ $PLATFORM == 'Darwin' ]; then
+        systctl -n hw.physmem
+    fi
+}
+
+cpu_threads() {
+    if [ $PLATFORM == 'Linux' ]; then
+        cat /proc/cpuinfo | grep 'processor' | uniq | wc -l
+    elif [ $PLATFORM == 'Darwin' ]; then
+        sysctl -n machdep.cpu.logical_per_package
+    fi
+}
+
+cpu_cores() {
+    if [ $PLATFORM == 'Linux' ]; then
+        cat /proc/cpuinfo | grep 'cpu cores' | uniq | sed -E 's/^.+\: //'
+    elif [ $PLATFORM == 'Darwin' ]; then
+        sysctl -n machdep.cpu.cores_per_package
+    fi
+}
+
+cpu_model() {
+    if [ $PLATFORM == 'Linux' ]; then
+        cat /proc/cpuinfo | grep 'model name' | uniq | sed -E 's/^.+\: //'
+    elif [ $PLATFORM == 'Darwin' ]; then
+        sysctl -n machdep.cpu.brand_string
+    fi
 }
 
 iso_date() {

@@ -1,12 +1,12 @@
 # colors defined in ~/.bash_colors
 
 # cpu info
-CPU_MODEL=`cat /proc/cpuinfo | grep 'model name' | uniq | sed -E 's/^.+\: //'`
-CPU_CORES=`cat /proc/cpuinfo | grep 'cpu cores' | uniq | sed -E 's/^.+\: //'`
-CPU_THREADS=`cat /proc/cpuinfo | grep 'processor' | uniq | wc -l`
+CPU_MODEL=cpu_model
+CPU_CORES=cpu_cores
+CPU_THREADS=cpu_threads
 
 # memory info
-MEMORY_BYTES=`lsmem -b | grep 'online memory' | sed -E 's/^.+\: //'`
+MEMORY_BYTES=memory_bytes
 MEMORY_MB=$(( $MEMORY_BYTES / 1024 / 1024 ))
 MEMORY_GB=$(( $MEMORY_MB / 1024 ))
 
