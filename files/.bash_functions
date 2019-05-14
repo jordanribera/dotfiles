@@ -19,7 +19,7 @@ memory_bytes() {
     if [ $PLATFORM == 'Linux' ]; then
         lsmem -b | grep 'online memory' | sed -E 's/^.+\: //'
     elif [ $PLATFORM == 'Darwin' ]; then
-        systctl -n hw.physmem
+        sysctl -n machdep.memmap.Conventional
     fi
 }
 
