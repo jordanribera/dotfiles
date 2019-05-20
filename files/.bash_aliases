@@ -6,6 +6,11 @@ alias pr="personalroot"
 alias workroot="cd ~/code/leafly"
 alias wr="workroot"
 
+# grepping
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
 # fancy lists
 # alias ls="ls -lhF"       # always show in list form
 alias lsa="ls -lahF"     # list with hidden
@@ -63,3 +68,6 @@ alias sug="sudo apt upgrade"
 
 # ruby
 alias ugh='export PATH="$HOME/.rbenv/bin:$PATH" && eval "$(rbenv init -)"'
+
+# connectivity
+alias stun='~/.scripts/leafly_tunnel.sh'
