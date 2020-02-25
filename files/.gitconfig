@@ -9,3 +9,7 @@
 	default = simple
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[color]
+    status = always
+    diff = always
+    advice = always
