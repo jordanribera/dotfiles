@@ -47,9 +47,11 @@ alias rcp="rsync -ah --progress"
 alias sudo="sudo "
 alias fah="/etc/init.d/FAHClient"
 
-# docker workflow
+# dev workflow
 alias dc="docker-compose"
 alias dcx="docker-compose exec"
+alias dslam="dir_slam"
+alias maxmap="sudo sysctl -w vm.max_map_count=262144"
 
 # google cloud
 alias gcrfix="gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://gcr.io"

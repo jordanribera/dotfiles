@@ -105,3 +105,18 @@ echo -e "
 "
 
 }
+
+dir_slam() {
+    bold=$(tput bold);
+    normal=$(tput sgr0);
+
+    array=(*/);
+    for d in "${array[@]}"
+    do
+        cd "./$d"
+        echo -e "$blue$d$reset";
+        $* 2>&1 | sed 's/^/    /'
+        echo ""
+        cd - > /dev/null
+    done
+}
