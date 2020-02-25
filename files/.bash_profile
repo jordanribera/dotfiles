@@ -98,3 +98,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+if [ $PLATFORM == 'Darwin' ]; then
+    export PATH="/usr/local/opt/node@10/bin:$PATH"
+fi
