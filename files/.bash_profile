@@ -16,12 +16,6 @@ if [ $PLATFORM == 'Linux' ]; then
     if [ -x /usr/bin/dircolors ]; then
         test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
         alias ls='ls -lhF --color=auto'
-        #alias dir='dir --color=auto'
-        #alias vdir='vdir --color=auto'
-
-        alias grep='grep --color=auto'
-        alias fgrep='fgrep --color=auto'
-        alias egrep='egrep --color=auto'
     fi
 
     export AFK_COMMAND="gnome-screensaver-command -l"
@@ -29,6 +23,7 @@ if [ $PLATFORM == 'Linux' ]; then
 elif [ $PLATFORM == 'Darwin' ]; then
 
     # Mac OS
+    alias ls='ls -lhF'
     export AFK_COMMAND="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
     # enable terminal colors
@@ -36,7 +31,6 @@ elif [ $PLATFORM == 'Darwin' ]; then
     export LSCOLORS=GxFxCxDxBxegedabagaced
 
     #if [ "$TERM" = xterm ]; then TERM=xterm-256color; fi
-
 fi
 
 #### Universal ####
