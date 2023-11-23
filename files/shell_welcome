@@ -1,5 +1,5 @@
 colorescape() {
-    echo -E "\001${1}\002";
+    echo -E "${1}";
 }
 
 tput sgr0; # reset colors

@@ -1,5 +1,6 @@
 reload() {
-    exec $SHELL -l
+    # exec $SHELL -l
+    source ~/.zshrc
 }
 
 external_ip() {

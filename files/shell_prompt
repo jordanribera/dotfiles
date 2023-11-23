@@ -1,5 +1,5 @@
 colorescape() {
-    echo -E "\001${1}\002";
+    echo -E "${1}";
 }
 
 tput sgr0; # reset colors
@@ -55,10 +55,10 @@ prompt_git() {
     local branchName='';
 
     # Check if the current directory is in a Git repository.
-    if [ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]; then
+    if [[ $(git rev-parse --is-inside-work-tree &>/dev/null; echo "${?}") == '0' ]]; then
 
         # check if the current directory is in .git before running git checks
-        if [ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]; then
+        if [[ "$(git rev-parse --is-inside-git-dir 2> /dev/null)" == 'false' ]]; then
 
             # Ensure the index is up to date.
             git update-index --really-refresh -q &>/dev/null;
@@ -102,6 +102,8 @@ prompt_git() {
     fi;
 }
 
+export PROMPT_GIT=prompt_git
+
 NOVEL_UNICODE="⎈"
 light_shade='░'
 hex_closed='⏣'
@@ -116,8 +118,8 @@ gear='⚙'
 prompt_command() {
     DATE_SEGMENT="${accentStyle}[${reset} $(iso_date) ${accentStyle}]${reset}"
     TIME_SEGMENT="${accentStyle}[ $(prompt_gear) $(iso_time) ${accentStyle}]${reset}"
-    USER_SEGMENT="${hostStyle}$black_hexagon  ${userStyle}\u${accentStyle}@${hostStyle}\h${reset}"
-    DIR_SEGMENT="${dirStyle}\w${reset}"
+    USER_SEGMENT="${hostStyle}$black_hexagon  ${userStyle}%n${accentStyle}@${hostStyle}%m${reset}"
+    DIR_SEGMENT="${dirStyle}%~${reset}"
     GIT_SEGMENT="$(prompt_git)"
     SYMBOL_TEST_LINE="$hex_closed $hex_opened $gear"
 

@@ -5,6 +5,8 @@
 autocmd! bufwritepost .vimrc source % " reload if writing to .vimrc
 command! LoadConf source % " probably silly
 
+set runtimepath=~/.dotfiles/vim,/var/lib/vim/addons,/etc/vim,/usr/share/vim/vimfiles,/usr/share/vim/vim82,/usr/share/vim/vimfiles/after,/etc/vim/after,/var/lib/vim/addons/after,~/.dotfiles/vim/after
+
 " ================
 " Hotkeys
 " ================
@@ -64,7 +66,7 @@ autocmd InsertLeave * :set relativenumber
 set tw=79 " width of document (used by gd)
 set nowrap " don't automatically wrap on load
 set fo-=t " don't automatically wrap text while typing
-set colorcolumn=80
+set colorcolumn=80,120
 highlight ColorColumn ctermbg=235
 
 " Easier formatting of paragraphs

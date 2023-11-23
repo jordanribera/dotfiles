@@ -1,0 +1,16 @@
+virsh vcpupin parasite 0 8-15,24-31
+virsh vcpupin parasite 1 8-15,24-31
+virsh vcpupin parasite 2 8-15,24-31
+virsh vcpupin parasite 3 8-15,24-31
+virsh vcpupin parasite 4 8-15,24-31
+virsh vcpupin parasite 5 8-15,24-31
+virsh vcpupin parasite 6 8-15,24-31
+virsh vcpupin parasite 7 8-15,24-31
+virsh vcpupin parasite 8 8-15,24-31
+virsh vcpupin parasite 9 8-15,24-31
+virsh vcpupin parasite 10 8-15,24-31
+virsh vcpupin parasite 11 8-15,24-31
+virsh vcpupin parasite 12 8-15,24-31
+virsh vcpupin parasite 13 8-15,24-31
+virsh vcpupin parasite 14 8-15,24-31
+virsh vcpupin parasite 15 8-15,24-31
